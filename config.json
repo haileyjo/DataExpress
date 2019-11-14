@@ -1,0 +1,7 @@
+{
+    "menu": [
+        ["Home", "/"],
+        ["Features", "features"],
+        ["Order", "order"]
+    ]
+}
