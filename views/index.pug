@@ -1,1 +1,22 @@
 extends layout
+
+block content
+  table(class='gridtable')
+    tr
+      th Id
+      th Username
+      th Email
+      th Age
+      th
+      th
+    each item in user
+      tr
+        td
+          p thingy
+        td #{item.username}
+        td #{item.email}
+        td #{item.age}
+        td
+          a another
+        td
+          a part

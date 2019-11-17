@@ -2,6 +2,6 @@
     "menu": [
         ["Home", "/"],
         ["Features", "features"],
-        ["Order", "order"]
+        ["Sign up", "create"]
     ]
 }
