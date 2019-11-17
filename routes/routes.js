@@ -34,7 +34,8 @@ exports.index = (req, res) => {
 
 exports.create = (req, res) => {
 	res.render('create', {
-		title: 'Add User'
+		title: 'Add User',
+		config: config
 	});
 };
 
