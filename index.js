@@ -19,5 +19,34 @@ var urlencodedParser = bodyParser.urlencoded({
 });
 
 app.get('/', route.index);
+app.get('/create', route.create);
+app.get('/edit/:id', route.edit);
+app.get('/details/:id', route.details);
+app.post('/create', urlencodedParser, route.createUser);
+app.post('/edit/:id', urlencodedParser, route.editUser);
+app.get('/delete/:id', route.delete);
+
+app.post('/', urlencodedParser, (req, res) => {
+	hash.makeHash(req.body.password);
+	route.results
+});
+
+app.get('/logout', (req, res) => {
+	res.session.destory(function (err) {
+		if(err) {
+			console.log(err);
+		} else {
+			res.redirect('/');
+		}
+	});
+});
+
+const checkAuth = (req, res) => {
+	if(req,session.user && req.session.user.isAuthenticated) {
+		next();
+	} else {
+		res.redirect('/')
+	}
+}
 
 app.listen(3000);
