@@ -1,0 +1,6 @@
+extends layout
+
+block content
+    form(id='form', method='post', action='/edit/' + person.id)
+    label(for='Username') Username:
+    imput(type='text', name='username', value=user.username)
