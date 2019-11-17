@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
+const config = require('../config')
 mongoose.connect('mongodb://localhost/data', {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 const mdb = mongoose.connection;
@@ -25,6 +26,7 @@ exports.index = (req, res) => {
 		if (err) return console.error(err);
 		res.render('index', {
 			title: 'Users',
+			'config': config,
 			people: user
 		});
 	});
