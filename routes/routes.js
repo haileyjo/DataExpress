@@ -1,3 +1,4 @@
+const config = require('../config');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/data', {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
@@ -25,7 +26,8 @@ exports.index = (req, res) => {
 		if (err) return console.error(err);
 		res.render('index', {
 			title: 'Users',
-			people: user
+			"config": config
+			//people: user
 		});
 	});
 };

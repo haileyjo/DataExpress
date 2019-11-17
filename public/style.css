@@ -1,7 +1,3 @@
 html {
-    background-image: url("WebsiteBackground.jpg");
-    background-repeat: no-repeat;
-}
-body {
-    background-image: url(/images/WebsiteBackground.jpg);
+    background: #cde7e8;
 }
