@@ -1,3 +1,4 @@
+const config = require('../config');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const config = require('../config')
@@ -26,8 +27,10 @@ exports.index = (req, res) => {
 		if (err) return console.error(err);
 		res.render('index', {
 			title: 'Users',
-			'config': config,
-			people: user
+
+			"config": config
+			//people: user
+
 		});
 	});
 };

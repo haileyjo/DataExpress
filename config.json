@@ -1,7 +1,5 @@
 {
     "menu": [
-        ["Home", "/"],
-        ["Features", "features"],
-        ["Sign up", "create"]
+        ["Home", "/"]
     ]
 }
