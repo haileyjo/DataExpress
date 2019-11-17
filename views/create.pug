@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1 Sign up
+  form(id='form' method='POST' action='/create')
+    p Username:
+      input(type='text' name='username')
+    p Password:
+      input(type='password' name='password')
+    p Email:
+      input(type='text' name='email')
+    p Age:
+      input(type='text' name='age')
+    p Are you an only child?
+      input(type='radio' name='question1' value='yes')
+      label Yes
+      input(type='radio' name='question1' value='no')
+      label No
+    p Is Christmas the best holiday?
+      input(type='radio' name='question2' value='yes')
+      label Yes
+      input(type='radio' name='question2' value='no')
+      label No
+    p Do you put up the Christmas tree before Thanksgiving?
+      input(type='radio' name='question3' value='yes')
+      label Yes
+      input(type='radio' name='question3' value='no')
+      label No
+    p 
+      input(type='submit' value="Sign Up")
