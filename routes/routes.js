@@ -49,13 +49,11 @@ exports.createUser = (req, res) => {
 		age: req.body.age
 
 	});
-	console.log('before');
 	user.save = (err, user) => {
 		if(err) return console.error(err);
 		console.log(req.body.username + ' added');
 	};
 	res.redirect('/');
-	console.log('after');
 };
 
 exports.edit = (req, res) => {
