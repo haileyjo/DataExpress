@@ -27,9 +27,8 @@ exports.index = (req, res) => {
 		res.render('index', {
 			title: 'Users',
 
-			"config": config
-			//people: user
-
+			"config": config,
+			user: user
 		});
 	});
 };
@@ -46,13 +45,15 @@ exports.createUser = (req, res) => {
 		username: req.body.username,
 		password: req.body.password,
 		email: req.body.email,
-		age: req.body.age
-
+		age: req.body.age,
+		question1: req.body.question1,
+		question2: req.body.question2,
+		question3: req.body.question3
 	});
-	user.save = (err, user) => {
+	user.save(function (err, user) {
 		if(err) return console.error(err);
-		console.log(req.body.username + ' added');
-	};
+		console.log(user.username + ' added');
+	});
 	res.redirect('/');
 };
 
@@ -61,12 +62,13 @@ exports.edit = (req, res) => {
 	  if (err) return console.error(err);
 	  res.render('edit', {
 		title: 'Edit User',
-		user: user
+		user: user,
+		config: config
 	  });
 	});
   };
 
-  exports.editUser = (req, res) => {
+exports.editUser = (req, res) => {
 	User.findById(req.params.id, function (err, user) {
 	  if (err) return console.error(err);
 	  	user.username = req.body.username,
@@ -79,21 +81,22 @@ exports.edit = (req, res) => {
 	  });
 	});
 	res.redirect('/'); 
-  };
+};
 
-  exports.delete = (req, res) => {
+exports.delete = (req, res) => {
 	User.findByIdAndRemove(req.params.id, function (err, user) {
 	  if (err) return console.error(err);
 	  res.redirect('/');
 	});
-  };
+};
 
-  exports.details = (req, res)=> {
+exports.details = (req, res)=> {
 	User.findById(req.params.id, function (err, user) {
 	  if (err) return console.error(err);
 	  res.render('details', {
 		title: user.username + "'s Details",
-		user: user
+		user: user,
+		config: config
 	  });
 	});
-  };
+};

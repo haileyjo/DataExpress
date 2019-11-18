@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h3 Username: #{user.username}
+  h3 Email: #{user.email}
+  h3 Age: #{user.age}
+
+  a(href='/edit/' + user.id) Edit account details

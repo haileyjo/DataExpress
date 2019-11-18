@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  form(id='form', method='post', action='edit/#{user.id}')
+    label Id
+      p #{user.id}
+    label Username
+      input(type='text' name='username' value=user.username)
+    label Password
+      input(type='password' name='password' value=user.password)
+    label Email
+      input(type='text' name='email' value=user.email)
+    label Age
+      input(type='text' name='age' value=user.age)
+    //- label Question 1
+    //-   input(type='text' name='question1' value=user.question1)
+    //- label Question 2
+    //-   input(type='text' name='question2' value=user.question2)
+    //- label Question 3
+    //-   input(type='text' name='question3' value=user.question3)
