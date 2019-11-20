@@ -25,7 +25,7 @@ exports.index = (req, res) => {
 	User.find(function (err, user) {
 		if (err) return console.error(err);
 		res.render('index', {
-			title: 'Users',
+			title: '',
 			"config": config
 			//people: user
 		});
@@ -34,7 +34,7 @@ exports.index = (req, res) => {
 
 exports.create = (req, res) => {
 	res.render('create', {
-		title: 'Add User',
+		title: '',
 		config: config
 	});
 };

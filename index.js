@@ -4,7 +4,7 @@ const path = require('path');
 const route = require('./routes/routes.js');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const expressSessions = require('express-session');
+const session = require('express-session');
 const config = require('./config');
 
 const app = express();
@@ -42,7 +42,7 @@ app.get('/logout', (req, res) => {
 });
 
 const checkAuth = (req, res) => {
-	if(req,session.user && req.session.user.isAuthenticated) {
+	if(req.session.user && req.session.user.isAuthenticated) {
 		next();
 	} else {
 		res.redirect('/')
