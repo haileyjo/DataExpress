@@ -27,10 +27,8 @@ exports.index = (req, res) => {
 		if (err) return console.error(err);
 		res.render('index', {
 			title: 'Users',
-
-			"config": config
-			//people: user
-
+			"config": config,
+			user: user
 		});
 	});
 };
@@ -53,32 +51,36 @@ exports.createUser = (req, res) => {
 	console.log('before');
 	user.save = (err, user) => {
 		if(err) return console.error(err);
-		console.log(req.body.username + ' added');
+		console.log(user.username + ' added');
 	};
-	res.redirect('/');
-	console.log('after');
+	res.redirect('/details/' + user.id);
 };
 
 exports.edit = (req, res) => {
-	User.findById(req.params.id, function (err, user) {
-	  if (err) return console.error(err);
-	  res.render('edit', {
-		title: 'Edit User',
-		user: user
-	  });
-	});
+		User.findById(req.params.id, function (err, user) {
+			if (err) return console.error(err);
+			res.render('edit', {
+			title: 'Edit User',
+			user: user,
+			config: config
+			});
+		});
   };
 
   exports.editUser = (req, res) => {
 	User.findById(req.params.id, function (err, user) {
+		console.log(user);
 	  if (err) return console.error(err);
-	  	user.username = req.body.username,
+		user.username = req.body.username,
 		user.password = req.body.password,
 		user.email =req.body.email,
-		user.age =req.body.age
+		user.age =req.body.age,
+		user.question1 = req.body.question1,
+		user.question2 = req.body.question2,
+		user.question3 = req.body.question3
 	  user.save(function (err, user) {
-		if (err) return console.error(err);
-		console.log(req.body.username + ' updated');
+			if (err) return console.error(err);
+			console.log(req.body.username + ' updated');
 	  });
 	});
 	res.redirect('/'); 
