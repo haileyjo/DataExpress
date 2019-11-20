@@ -26,8 +26,8 @@ exports.index = (req, res) => {
 		if (err) return console.error(err);
 		res.render('index', {
 			title: '',
-			"config": config
-			//user: user
+			"config": config,
+			user: user
 
 		});
 	});
