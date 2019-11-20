@@ -1,7 +1,6 @@
 const config = require('../config');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const config = require('../config')
 mongoose.connect('mongodb://localhost/data', {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 const mdb = mongoose.connection;
@@ -26,17 +25,18 @@ exports.index = (req, res) => {
 	User.find(function (err, user) {
 		if (err) return console.error(err);
 		res.render('index', {
-			title: 'Users',
-			"config": config,
-			user: user
+			title: '',
+			"config": config
+			//user: user
+
 		});
 	});
 };
 
 exports.create = (req, res) => {
 	res.render('create', {
-		title: 'Add User',
-		'config': config
+		title: '',
+		config: config
 	});
 };
 
@@ -45,29 +45,30 @@ exports.createUser = (req, res) => {
 		username: req.body.username,
 		password: req.body.password,
 		email: req.body.email,
-		age: req.body.age
-
+		age: req.body.age,
+		question1: req.body.question1,
+		question2: req.body.question2,
+		question3: req.body.question3
 	});
-	console.log('before');
-	user.save = (err, user) => {
+	user.save(function (err, user) {
 		if(err) return console.error(err);
 		console.log(user.username + ' added');
-	};
-	res.redirect('/details/' + user.id);
+	});
+	res.redirect('/');
 };
 
 exports.edit = (req, res) => {
-		User.findById(req.params.id, function (err, user) {
-			if (err) return console.error(err);
-			res.render('edit', {
-			title: 'Edit User',
-			user: user,
-			config: config
-			});
-		});
+	User.findById(req.params.id, function (err, user) {
+	  if (err) return console.error(err);
+	  res.render('edit', {
+		title: 'Edit User',
+		user: user,
+		config: config
+	  });
+	});
   };
 
-  exports.editUser = (req, res) => {
+exports.editUser = (req, res) => {
 	User.findById(req.params.id, function (err, user) {
 		console.log(user);
 	  if (err) return console.error(err);
@@ -84,21 +85,22 @@ exports.edit = (req, res) => {
 	  });
 	});
 	res.redirect('/'); 
-  };
+};
 
-  exports.delete = (req, res) => {
+exports.delete = (req, res) => {
 	User.findByIdAndRemove(req.params.id, function (err, user) {
 	  if (err) return console.error(err);
 	  res.redirect('/');
 	});
-  };
+};
 
-  exports.details = (req, res)=> {
+exports.details = (req, res)=> {
 	User.findById(req.params.id, function (err, user) {
 	  if (err) return console.error(err);
 	  res.render('details', {
 		title: user.username + "'s Details",
-		user: user
+		user: user,
+		config: config
 	  });
 	});
-  };
+};

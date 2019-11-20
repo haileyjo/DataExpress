@@ -1,16 +1,17 @@
 extends layout
 
 block content
-  h1 Sign up
-  form(id='form' method='POST' action='/create')
+  <h1>Sign up</h1>
+
+  form(id='form' method='POST' action='/create' style='margin-left: 20px;')
     p Username:
-      input(type='text' name='username')
+      input(type='text' name='username' style='border-radius: 10px; background-color: #c1d0c9;')
     p Password:
-      input(type='password' name='password')
+      input(type='password' name='password' style='border-radius: 10px; background-color: #c1d0c9;')
     p Email:
-      input(type='text' name='email')
+      input(type='text' name='email' style='border-radius: 10px; background-color: #c1d0c9;')
     p Age:
-      input(type='text' name='age')
+      input(type='text' name='age' style='border-radius: 10px; background-color: #c1d0c9;')
     p Are you an only child?
       input(type='radio' name='question1' value='yes')
       label Yes
@@ -27,4 +28,5 @@ block content
       input(type='radio' name='question3' value='no')
       label No
     p 
-      input(type='submit' value="Sign Up")
+      input(type='submit' value="Submit" style='text-align: center; width: 100px; background-color: #99434c; border-radius: 10px; color: white; font-family: monospace;')
+

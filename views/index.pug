@@ -2,8 +2,7 @@
 extends layout
 
 block content
-    h2 Home
-    img(src='/images/WebsiteBackground.jpg', alt='christmas' style='width: 1000px; height: 550px; margin-left: 450px') 
+    img(src='/images/WebsiteBackground.jpg', alt='christmas' style='width: 1000px; height: 550px; float: right') 
 
   each item in user
     a(href='/details/' + item.id) Account Details
