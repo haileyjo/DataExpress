@@ -1,22 +1,31 @@
 extends layout
 
 block content
-
-  form(id='form', method='post', action='edit/#{user.id}')
-    label Id
+  form(id='form', method='post', action='/edit/'+user.id)
+    p Id
       p #{user.id}
-    label Username
+    p Username
       input(type='text' name='username' value=user.username)
-    label Password
+    p Password
       input(type='password' name='password' value=user.password)
-    label Email
+    p Email
       input(type='text' name='email' value=user.email)
-    label Age
+    p Age
       input(type='text' name='age' value=user.age)
-    //- label Question 1
-    //-   input(type='text' name='question1' value=user.question1)
-    //- label Question 2
-    //-   input(type='text' name='question2' value=user.question2)
-    //- label Question 3
-    //-   input(type='text' name='question3' value=user.question3)
-
+    p Are you an only child?
+      input(type='radio' name='question1' value='yes' checked=user.question1=="yes")
+      label Yes
+      input(type='radio' name='question1' value='no' checked=user.question1=="no")
+      label No
+    p Is Christmas the best holiday?
+      input(type='radio' name='question2' value='yes' checked=user.question2=="yes")
+      label Yes
+      input(type='radio' name='question2' value='no' checked=user.question2=="no")
+      label No
+    p Do you put up the Christmas tree before Thanksgiving?
+      input(type='radio' name='question3' value='yes' checked=user.question3=="yes")
+      label Yes
+      input(type='radio' name='question3' value='no' checked=user.question3=="no")
+      label No
+    p
+      input(type='submit' value='Update Account')
