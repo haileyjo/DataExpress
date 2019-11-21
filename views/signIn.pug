@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    p 
+        h3 Sign In
+        form(id='form' action='/auth' method='POST')
+            label(for="username") Enter your Username
+            input(type="text", name="username")
+            br
+            label(for="password") Enter your Password
+            input(type="password", name="password")
+            br
+            label(for="rememberUser") Remember Me
+            input(type="checkbox", name="rememberUser")
+            br
+            input(type="submit" value='Login')
+
+            
