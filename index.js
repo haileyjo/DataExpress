@@ -4,15 +4,24 @@ const path = require('path');
 const route = require('./routes/routes.js');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const session = require('express-session');
+const expressSession = require('express-session');
 const config = require('./config');
 
 const app = express();
+
+app.use(cookieParser('This is a cookie'));
 
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 
 app.use(express.static(path.join(__dirname + '/public')));
+
+app.use(expressSession ({
+	secret: 'thisisthemostsecuresecrettoplevelclearance',
+	saveUninitialized: true,
+	resave: true,
+	cookie: {maxAge: 9999999999999999}
+}));
 
 var urlencodedParser = bodyParser.urlencoded({
 	extended: true
@@ -20,33 +29,13 @@ var urlencodedParser = bodyParser.urlencoded({
 
 app.get('/', route.index);
 app.get('/create', route.create);
-app.get('/edit/:id', route.edit);
-app.get('/details/:id', route.details);
+app.get('/edit', route.edit);
+app.get('/details', route.details);
+app.get('/signIn', route.signIn);
+app.get('/logout', route.logout);
 app.post('/create', urlencodedParser, route.createUser);
-app.post('/edit/:id', urlencodedParser, route.editUser);
-app.get('/delete/:id', route.delete);
-
-app.post('/', urlencodedParser, (req, res) => {
-	hash.makeHash(req.body.password);
-	route.results
-});
-
-app.get('/logout', (req, res) => {
-	res.session.destory(function (err) {
-		if(err) {
-			console.log(err);
-		} else {
-			res.redirect('/');
-		}
-	});
-});
-
-const checkAuth = (req, res) => {
-	if(req.session.user && req.session.user.isAuthenticated) {
-		next();
-	} else {
-		res.redirect('/')
-	}
-}
+app.post('/auth', urlencodedParser, route.auth);
+app.post('/edit', urlencodedParser, route.editUser);
+app.get('/delete', route.delete);
 
 app.listen(3000);
