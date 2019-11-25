@@ -1,6 +1,9 @@
 {
     "menu": [
         ["Home", "/"],
-        ["Create", "/create"]
+        ["Sign Up", "create"],
+        ["Sign In","signIn"],
+        ["Account","details"],
+        ["Log Out","logout"]
     ]
 }
