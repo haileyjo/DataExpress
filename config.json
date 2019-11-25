@@ -1,8 +1,8 @@
 {
     "menu": [
         ["Home", "/"],
-        ["Sign Up", "create"],
-        ["Sign In","signIn"],
+        ["Sign-Up", "create"],
+        ["Sign-In","signIn"],
         ["Account","details"],
         ["Log Out","logout"]
     ]

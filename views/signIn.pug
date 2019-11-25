@@ -2,17 +2,16 @@ extends layout
 
 block content
     p 
-        h3 Sign In
-        form(id='form' action='/auth' method='POST')
-            label(for="username") Enter your Username
-            input(type="text", name="username")
+        form(id='form' action='/auth' method='POST' style='margin-left: 20px;')
+            label(for="username") Enter your Username:
+            input(type="text", name="username", style='border-radius: 10px; background-color: #c1d0c9;')
             br
-            label(for="password") Enter your Password
-            input(type="password", name="password")
+            label(for="password") Enter your Password:
+            input(type="password", name="password", style='border-radius: 10px; background-color: #c1d0c9;')
             br
-            label(for="rememberUser") Remember Me
-            input(type="checkbox", name="rememberUser")
+            label(for="rememberUser") Remember Me:
+            input(type="checkbox", name="rememberUser", style='border-radius: 10px; background-color: #c1d0c9;')
             br
-            input(type="submit" value='Login')
+            input(type="submit" value='Login', style='text-align: center; width: 100px; background-color: #99434c; border-radius: 10px; color: white; font-family: monospace;')
 
             
