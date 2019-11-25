@@ -12,9 +12,15 @@ h1 {
     font-size: 35px;
     margin-left: 20px
 }
+
 p {
     font-family: monospace;
     font-size: 15px;
+}
+
+label {
+  font-family: monospace;
+  font-size: 15px;
 }
 
 ul {
@@ -54,7 +60,16 @@ ul {
     font-size: 20px;
 }
 
-#Login {
+#Home {
     margin-left: 30px;
     margin-right: 30px;
+}
+
+#Account {
+  margin-right: 30px;
+}
+
+#Sign-In {
+  margin-left: 30px;
+  margin-right: 30px;
 }
