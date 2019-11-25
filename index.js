@@ -25,6 +25,7 @@ app.get('/details/:id', route.details);
 app.post('/create', urlencodedParser, route.createUser);
 app.post('/edit/:id', urlencodedParser, route.editUser);
 app.get('/delete/:id', route.delete);
+app.get('/api/:id', route.api);
 
 app.post('/', urlencodedParser, (req, res) => {
 	hash.makeHash(req.body.password);

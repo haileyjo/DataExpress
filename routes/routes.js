@@ -1,5 +1,6 @@
 const config = require('../config');
 const mongoose = require('mongoose');
+const fs = require('fs');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/data', {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
@@ -103,4 +104,8 @@ exports.details = (req, res)=> {
 		config: config
 	  });
 	});
+};
+
+exports.api = (req, res) => {
+
 };
