@@ -2,24 +2,31 @@
 extends layout
 
 block content
-  img(src='/images/WebsiteBackground.jpg', alt='christmas' style='width: 900px; height: 550px; float: right') 
+  img(src='/images/WebsiteBackground.jpg' alt='christmas' style='width: 1000px; height: 550px; float: right') 
+  //- table(class='grid_table')
+  //-   tr
+  //-     th Username
+  //-     th Age
+  //-     th Email
+  //-     th Security Questions
+  //-     th
+  //-     th
+  //-     th 
+  //-     th 
+  //-   each user in user
+  //-     tr
+  //-       td
+  //-         a(href='/details') #{user.username}
+  //-       td #{user.age}
+  //-       td #{user.email}
+  //-       td #{user.question1}
+  //-       td #{user.question2}
+  //-       td #{user.question3}
 
-  table
-    tr
-      th Id
-      th Username
-      th Email
-      th Age
-      th
-      th
-    each item in user
-      tr
-        td
-          a(href='/details/' + item.id) #{item.id}
-        td #{item.username}
-        td #{item.email}
-        td #{item.age}
-        td
-          a(href='/edit/' + item.id) Edit
-        td
-          a(href='/delete/' + item.id) Delete
+  //-       td
+  //-         a(href='/edit') Edit
+  //-       td
+  //-         a(href='/delete') Delete
+  //- p
+  //- #menu
+  //-   a(href='/create') Add new person

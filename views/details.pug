@@ -3,10 +3,15 @@ extends layout
 block content
 
     p Username: #{user.username}
-    p Password: #{user.password}
+    //- p Password: #{user.password}
     p Email: #{user.email}
+    p Question 1: #{user.question1}
+    p Question 2: #{user.question2}
+    p Question 3: #{user.question3}
     p Age: #{user.age}
     br
     #menu
+        a(href='/edit') Edit
+        br
         a(href='/') Go Back
 

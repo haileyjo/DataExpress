@@ -1,17 +1,16 @@
 extends layout
 
 block content
-  form(id='form', method='post', action='/edit/'+user.id)
-    p Id
-      p #{user.id}
-    p Username
-      input(type='text' name='username' value=user.username)
-    p Password
-      input(type='password' name='password' value=user.password)
-    p Email
-      input(type='text' name='email' value=user.email)
-    p Age
-      input(type='text' name='age' value=user.age)
+  form(id='form', method='POST', action='/edit')
+    p Id: #{user.id}
+    p Username: 
+      input(type='text' name='username', value=user.username)
+    p Password: 
+      input(type='password' name='password')
+    p Email:
+      input(type='text' name='email' ,value=user.email)
+    p Age:
+      input(type='text' name='age' ,value=user.age)
     p Are you an only child?
       input(type='radio' name='question1' value='yes' checked=user.question1=="yes")
       label Yes
@@ -29,3 +28,8 @@ block content
       label No
     p
       input(type='submit' value='Update Account')
+
+    a(href='/delete') Delete
+      div(id="delete-button" class="delete-button")
+      
+  script(src="profile.js")        
