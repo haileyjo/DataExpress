@@ -31,18 +31,22 @@ app.post('/', urlencodedParser, (req, res) => {
 	route.results
 });
 
-app.get('/logout', (req, res) => {
-	res.session.destory(function (err) {
-		if(err) {
-			console.log(err);
-		} else {
-			res.redirect('/');
-		}
-	});
-});
+const logout = () => {
+	console.log('logged out');
+	var pageContent = document.getElementById('userTable');
+	var logoutBtn = document.getElementById('logoutBtn');
+	
+	if (pageContent.style.display === "none" && logoutBtn.style.display === "none") {
+		pageContent.style.display = "block";
+		logoutBtn.style.display = "block";		
+	} else {
+		pageContent.style.display = "none";
+		logoutBtn.style.display = "none";
+	}
+}
 
 const checkAuth = (req, res) => {
-	if(req,session.user && req.session.user.isAuthenticated) {
+	if (req, session.user && req.session.user.isAuthenticated) {
 		next();
 	} else {
 		res.redirect('/')

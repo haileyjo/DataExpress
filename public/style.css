@@ -1,3 +1,47 @@
 html {
     background: #cde7e8;
 }
+
+#logoutBtn {
+    width: 100px;
+    height: 25px;
+}
+
+.btn{
+    background-image: radial-gradient(circle, white, grey);
+    color: #000;
+    max-width: 15%;
+    text-align: center;
+    margin:auto auto 5px auto;
+    border-radius: 10px;
+  }
+  
+  .btn:hover{
+    background-image: radial-gradient(circle, white, lightblue, rgb(105, 105, 105));
+    max-width: 15%;
+    text-align: center;
+    margin:auto auto 5px auto;
+  }
+  
+  
+  table, th, td{
+    border: 3px solid white;
+    text-align: center;
+    padding: 5px;
+    margin: auto;
+  }
+  
+  th{
+    border: 3px solid rgba(0,0,0,0);  
+  }
+  
+  td{
+    border: 3px solid black;
+    padding: 5px;
+  }
+  
+  img{
+    width: 15%;
+    height: 15%;
+    border: 1px solid black;
+  }
