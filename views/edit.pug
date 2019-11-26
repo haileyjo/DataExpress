@@ -2,7 +2,7 @@ extends layout
 
 block content
   form(id='form', method='POST', action='/edit')
-    p Id: #{user.id}
+    //- p Id: #{user.id}
     p Username: 
       input(type='text' name='username', value=user.username)
     p Password: 

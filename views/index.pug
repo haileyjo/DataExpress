@@ -3,30 +3,13 @@ extends layout
 
 block content
   img(src='/images/WebsiteBackground.jpg' alt='christmas' style='width: 1000px; height: 550px; float: right') 
-  //- table(class='grid_table')
-  //-   tr
-  //-     th Username
-  //-     th Age
-  //-     th Email
-  //-     th Security Questions
-  //-     th
-  //-     th
-  //-     th 
-  //-     th 
-  //-   each user in user
-  //-     tr
-  //-       td
-  //-         a(href='/details') #{user.username}
-  //-       td #{user.age}
-  //-       td #{user.email}
-  //-       td #{user.question1}
-  //-       td #{user.question2}
-  //-       td #{user.question3}
+  div(id="graphArea")
+    h2 User Answers
+    h3 Are you an only child?
+    canvas(id="onlyChildGraph")
+    h3 Is Christmas the best holiday?
+    canvas(id="holidayGraph")
+    h3 Do you put up the Christmas tree before Thanksgiving?
+    canvas(id="treeGraph")
 
-  //-       td
-  //-         a(href='/edit') Edit
-  //-       td
-  //-         a(href='/delete') Delete
-  //- p
-  //- #menu
-  //-   a(href='/create') Add new person
+  script(src="home.js")
