@@ -165,7 +165,9 @@ exports.details = (req, res) => {
 
 
 exports.logout = function(req, res) {
+  // req.session == null;
   req.session.destroy();
+  
   res.clearCookie("rememberUser");
   res.redirect("/");
 };

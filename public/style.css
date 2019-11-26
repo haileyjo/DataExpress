@@ -48,12 +48,17 @@ ul {
   }
 
   .menu_item {
-    margin-left: 10px;
+    margin-left: 30px;
     color: white;
     font-family: monospace;
     font-size: 20px;
 }
 
-#Login {
+  .item {
     margin-left: 30px;
+}
+
+  .username {
+  justify-content: center;
+  align-items: center;
 }
