@@ -43,4 +43,32 @@ app.post('/auth', urlencodedParser, route.auth);
 app.post('/edit', urlencodedParser, route.editUser);
 app.get('/delete', route.delete);
 
+
+app.post('/', urlencodedParser, (req, res) => {
+	hash.makeHash(req.body.password);
+	route.results
+});
+
+const logout = () => {
+	console.log('logged out');
+	var pageContent = document.getElementById('userTable');
+	var logoutBtn = document.getElementById('logoutBtn');
+	
+	if (pageContent.style.display === "none" && logoutBtn.style.display === "none") {
+		pageContent.style.display = "block";
+		logoutBtn.style.display = "block";		
+	} else {
+		pageContent.style.display = "none";
+		logoutBtn.style.display = "none";
+	}
+}
+
+const checkAuth = (req, res) => {
+	if (req, session.user && req.session.user.isAuthenticated) {
+		next();
+	} else {
+		res.redirect('/')
+	}
+}
+
 app.listen(3000);
