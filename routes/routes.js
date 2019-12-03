@@ -169,3 +169,10 @@ exports.logout = function(req, res) {
   res.clearCookie("rememberUser");
   res.redirect("/");
 };
+
+exports.api = (req, res) => {
+	res.render('api', {
+		"title": "Data",
+		config
+	})
+};
