@@ -171,3 +171,9 @@ exports.logout = function(req, res) {
   res.clearCookie("rememberUser");
   res.redirect("/");
 };
+
+exports.api = (req,res) => {
+  User.find({}, (err,User_Collection) => {
+    res.json(User_Collection)
+  })
+}
