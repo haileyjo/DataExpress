@@ -4,6 +4,7 @@
         ["Sign-Up", "create"],
         ["Sign-In","signIn"],
         ["Account","details"],
-        ["Log Out","logout"]
+        ["Log Out","logout"],
+        ["Edit", "/edit"]
     ]
 }
