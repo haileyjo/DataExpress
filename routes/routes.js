@@ -165,7 +165,19 @@ exports.details = (req, res) => {
 
 
 exports.logout = function(req, res) {
+  // req.session == null;
   req.session.destroy();
+  
   res.clearCookie("rememberUser");
   res.redirect("/");
+};
+
+exports.api = (req, res) => {
+  User.find({}, (err,User_Collection) => {
+    res.json(User_Collection)
+  })
+	res.render('api', {
+		"title": "Data",
+		config
+	})
 };

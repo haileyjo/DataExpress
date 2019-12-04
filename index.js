@@ -27,7 +27,7 @@ app.use(expressSession ({
 	resave: true,
 	cookie: {maxAge: 9999999999999999}
 }));
-
+app.use(bodyParser.json());
 var urlencodedParser = bodyParser.urlencoded({
 	extended: true
 });
@@ -43,6 +43,7 @@ app.post('/auth', urlencodedParser, route.auth);
 app.post('/edit', urlencodedParser, route.editUser);
 app.get('/delete', route.delete);
 
+app.get('/api', route.api);
 
 app.post('/', urlencodedParser, (req, res) => {
 	hash.makeHash(req.body.password);
