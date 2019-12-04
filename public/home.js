@@ -4,8 +4,14 @@
 //may use external library for picking colors
 
 var canvas = document.getElementById("onlyChildGraph");
+var canvas2 = document.getElementById("holidayGraph");
+var canvas3 = document.getElementById("treeGraph");
 var childCtx = canvas.getContext("2d");
+var childCtx2 = canvas2.getContext("2d");
+var childCtx3 = canvas3.getContext("2d");
 childCtx.fillStyle = "#99434c";
+childCtx2.fillStyle = "#99434c";
+childCtx3.fillStyle = "#99434c";
 
 function drawLine(ctx, startX, startY, endX, endY, color) {
   ctx.save();
@@ -38,3 +44,5 @@ function drawGraph(ctx, yesHeight, noHeight) {
 }
 
 drawGraph(childCtx, 12, 15);
+drawGraph(childCtx2, 12, 15);
+drawGraph(childCtx3, 12, 15);
