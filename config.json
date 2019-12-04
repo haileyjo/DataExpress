@@ -5,6 +5,7 @@
         ["Sign-In","signIn"],
         ["Account","details"],
         ["Log Out","logout"],
+        ["Edit", "/edit"],
         ["API", "api"]
     ]
 }
