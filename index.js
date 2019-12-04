@@ -44,6 +44,7 @@ app.post('/edit', urlencodedParser, route.editUser);
 app.get('/delete', route.delete);
 
 app.get('/api', route.api);
+app.post('/api', urlencodedParser, route.api);
 
 app.post('/', urlencodedParser, (req, res) => {
 	hash.makeHash(req.body.password);
