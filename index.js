@@ -41,6 +41,7 @@ app.get('/delete', route.delete);
 <<<<<<< Updated upstream
 =======
 app.get('/api', route.api);
+app.post('/api', urlencodedParser, route.api);
 
 
 app.post('/', urlencodedParser, (req, res) => {

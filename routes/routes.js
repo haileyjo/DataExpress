@@ -30,10 +30,20 @@ exports.index = (req, res) => {
       id: req.cookies.rememberUser
     };
   }
-  res.render("index", {
-    title: "title",   
-    config
-  });
+  User.find({}, (err, User_Collection) => {
+    if (err) return console.error(err);
+    res.render("index", {
+      title: "Data",
+      question1: User_Collection.question1,
+      question2: User_Collection.question2,
+      question3: User_Collection.question3,
+      config
+    });
+  // res.render("index", {
+  //   title: "title",
+  //   config
+  // });
+});
 };
 
 exports.create = (req, res) => {
@@ -81,13 +91,12 @@ exports.editUser = (req, res) => {
     User.findById(req.session.user.id, function(err, user) {
       console.log(user);
       if (err) return console.error(err);
-        user.username = req.body.username;
-        user.password = hash;
-        (user.email = req.body.email),
-        (user.age = req.body.age);
-        user.question1 = req.body.question1;
-        user.question2 = req.body.question2;
-        user.question3 = req.body.question3;
+      user.username = req.body.username;
+      user.password = hash;
+      (user.email = req.body.email), (user.age = req.body.age);
+      user.question1 = req.body.question1;
+      user.question2 = req.body.question2;
+      user.question3 = req.body.question3;
       user.save(function(err, user) {
         if (err) return console.error(err);
         console.log(req.body.username + " updated");
@@ -163,17 +172,44 @@ exports.details = (req, res) => {
   });
 };
 
-
 exports.logout = function(req, res) {
   // req.session == null;
   req.session.destroy();
-  
+
   res.clearCookie("rememberUser");
   res.redirect("/");
 };
 
 exports.api = (req,res) => {
+<<<<<<< Updated upstream
   User.find({}, (err,User_Collection) => {
     res.json(User_Collection)
   })
 }
+=======
+  User.find({}, (err, User_Collection) => {
+    if (err) return console.error(err);
+    res.json(User_Collection);
+  });
+};
+
+// exports.api = (req, res) => {
+//   User.find({}, (err, User_Collection) => {
+//     if (err) return console.error(err);
+//     res.render("api", {
+//       title: "Data",
+//       question1: User_Collection.question1,
+//       question2: User_Collection.question2,
+//       question3: User_Collection.question3,
+//       config
+//     });
+    
+//   })
+//   // User.find({}, (err, User_Collection) => {
+//   //   res.json(User_Collection).question1;
+//   //   res.json(User_Collection).question2;
+//   //   res.json(User_Collection).question3;
+//   // });
+  
+// };
+>>>>>>> Stashed changes
